@@ -12,7 +12,7 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     about = models.TextField()
-    subscribers = models.ManyToManyField(
+    subscribees = models.ManyToManyField(
         "self", through="Relationship", symmetrical=False,
         related_name="subscribed")
     join_date = models.DateTimeField(auto_now_add=True, editable=False)
@@ -26,13 +26,12 @@ class User(AbstractBaseUser):
     def get_short_name(self):
         return self.name
 
-    def subscribe(self, subscriber):
-        """Add a subscriber to this user."""
-        r = Relationship(from_user=subscriber, to_user=self)
+    def subscribe(self, subscribee):
+        r = Relationship(from_user=self, to_user=subscribee)
         r.save()
 
-    def unsubscribe(self, subscriber):
-        sub = self.subscribers.objects.get(from_user=subscriber)
+    def unsubscribe(self, subscribee):
+        sub = self.subscribees.objects.get(to_user=subscribee)
         if sub:
             sub.delete()
             return True
