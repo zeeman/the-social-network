@@ -8,33 +8,41 @@
 </head>
 <body>
     <div class="container">
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">BlogFrog</a>
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <!--
+                Feed, Profile, Account
+
+                Friends
+
+                Find Content
+                    Keyword search
+                    Find friends
+                -->
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#">Feed</a></li>
+                    <li class="active"><a href="#">Profile</a></li>
+                    <li><a href="#">Account</a></li>
+                </ul>
+
+                <ul class="nav nav-pills nav-stacked">
+
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <div class="panel panel-default">
+                    <div class="panel-body centered">
+                        <img src="images/profile_pic.png" alt=""/>
+                        <h1>Iroh</h1>
+                        <p>Are you so busy fighting you cannot see your own ship has set sail?</p>
+                    </div>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Friends</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Logout</a></li>
-                    </ul>
+                <div class="panel">
+                    <div class="panel-body">
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="jumbotron">
-            <h1>Iroh</h1>
-            <p class="lead">Are you so busy fighting you cannot see your own ship has set sail?</p>
-            <p><button class="btn btn-lg btn-success">Follow Iroh</button></p>
         </div>
     </div>
 </body>
