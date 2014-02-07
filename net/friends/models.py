@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
+from net.utils import first
+
 
 class Relationship(models.Model):
     class Meta:
@@ -12,6 +14,12 @@ class Relationship(models.Model):
     from_user = models.ForeignKey("User", related_name="subscriptions")
     to_user = models.ForeignKey("User", related_name="subscribers")
     is_block = models.BooleanField(default=False)
+
+    def __repr__(self):
+        return u'<Relationship ({0}): {1} => {2}>'.format(
+                'block' if self.is_block else 'subscription',
+                self.from_user,
+                self.to_user)
 
 
 class User(AbstractBaseUser):
@@ -32,17 +40,25 @@ class User(AbstractBaseUser):
     def get_short_name(self):
         return self.name
 
-    def subscribe(self, subscription):
-        r = Relationship(from_user=self, to_user=subscription)
-        r.save()
+    def subscribe(self, other_user):
+        sub = first(self.subscriptions.filter(to_user=other_user))
+        if sub:
+            return False
+        else:
+            r = Relationship(from_user=self, to_user=other_user)
+            r.save()
+            return True
 
-    def unsubscribe(self, subscription):
-        sub = self.subscribees.objects.get(to_user=subscription)
+    def unsubscribe(self, other_user):
+        sub = first(self.subscriptions.filter(to_user=other_user))
         if sub:
             sub.delete()
             return True
         else:
             return False
+
+    def __unicode__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -52,3 +68,6 @@ class Post(models.Model):
     user = models.ForeignKey("User")
     text = models.TextField()
     post_date = models.DateTimeField()
+
+    def __repr__(self):
+        return u'<Post: "{0}">'.format(self.text[:50])
