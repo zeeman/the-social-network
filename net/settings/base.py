@@ -26,8 +26,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+
     'net',
 )
+
+TEMPLATE_LOADERS = ('lib.jinja2_for_django.Loader',)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
