@@ -3,12 +3,18 @@ from django.db import models
 
 
 class Relationship(models.Model):
+    class Meta:
+        app_label = 'net'
+
     from_user = models.ForeignKey("User")
     to_user = models.ForeignKey("User")
     is_block = models.BooleanField(default=False)
 
 
 class User(AbstractBaseUser):
+    class Meta:
+        app_label = 'net'
+
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     about = models.TextField()
@@ -40,6 +46,9 @@ class User(AbstractBaseUser):
 
 
 class Post(models.Model):
+    class Meta:
+        app_label = 'net'
+
     user = models.ForeignKey("User")
     text = models.TextField()
     post_date = models.DateTimeField()
