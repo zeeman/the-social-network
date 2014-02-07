@@ -3,18 +3,20 @@ from django.db import models
 
 
 class Relationship(models.Model):
-    from_user = models.ForeignKey("User")
-    to_user = models.ForeignKey("User")
+    from_user = models.ForeignKey("User", related_name="subscriptions")
+    to_user = models.ForeignKey("User", related_name="subscribers")
     is_block = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = (
+            ('from_user', 'to_user'),
+        )
 
 
 class User(AbstractBaseUser):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     about = models.TextField()
-    subscribers = models.ManyToManyField(
-        "self", through="Relationship", symmetrical=False,
-        related_name="subscribed")
     join_date = models.DateTimeField(auto_now_add=True, editable=False)
 
     # AbstractBaseUser username field definition
