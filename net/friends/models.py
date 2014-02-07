@@ -13,6 +13,12 @@ class Relationship(models.Model):
     to_user = models.ForeignKey("User", related_name="subscribers")
     is_block = models.BooleanField(default=False)
 
+    def __repr__(self):
+        return u'<Relationship ({0}): {1} => {2}>'.format(
+                'block' if self.is_block else 'subscription',
+                self.from_user,
+                self.to_user)
+
 
 class User(AbstractBaseUser):
     class Meta:
@@ -44,6 +50,9 @@ class User(AbstractBaseUser):
         else:
             return False
 
+    def __unicode__(self):
+        return self.name
+
 
 class Post(models.Model):
     class Meta:
@@ -52,3 +61,6 @@ class Post(models.Model):
     user = models.ForeignKey("User")
     text = models.TextField()
     post_date = models.DateTimeField()
+
+    def __repr__(self):
+        return u'<Post: "{0}">'.format(self.text[:50])
