@@ -5,9 +5,12 @@ from django.db import models
 class Relationship(models.Model):
     class Meta:
         app_label = 'net'
+        unique_together = (
+            ('from_user', 'to_user'),
+        )
 
-    from_user = models.ForeignKey("User")
-    to_user = models.ForeignKey("User")
+    from_user = models.ForeignKey("User", related_name="subscriptions")
+    to_user = models.ForeignKey("User", related_name="subscribers")
     is_block = models.BooleanField(default=False)
 
 
@@ -18,9 +21,6 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     about = models.TextField()
-    subscriptions = models.ManyToManyField(
-        "self", through="Relationship", symmetrical=False,
-        related_name="subscribers")
     join_date = models.DateTimeField(auto_now_add=True, editable=False)
 
     # AbstractBaseUser username field definition
