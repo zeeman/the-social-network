@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
+from net.utils import first
+
 
 class Relationship(models.Model):
     class Meta:
@@ -38,12 +40,17 @@ class User(AbstractBaseUser):
     def get_short_name(self):
         return self.name
 
-    def subscribe(self, subscription):
-        r = Relationship(from_user=self, to_user=subscription)
-        r.save()
+    def subscribe(self, other_user):
+        sub = first(self.subscriptions.filter(to_user=other_user))
+        if sub:
+            return False
+        else:
+            r = Relationship(from_user=self, to_user=other_user)
+            r.save()
+            return True
 
-    def unsubscribe(self, subscription):
-        sub = self.subscribees.objects.get(to_user=subscription)
+    def unsubscribe(self, other_user):
+        sub = first(self.subscriptions.filter(to_user=other_user))
         if sub:
             sub.delete()
             return True
