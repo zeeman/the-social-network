@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, UserManager
 from django.db import models
 
 from net.utils import first
@@ -26,8 +26,10 @@ class User(AbstractBaseUser):
     class Meta:
         app_label = 'net'
 
+    objects = UserManager()
+
     name = models.CharField(max_length=255)
-    email = models.EmailField(max_length=255)
+    email = models.EmailField(max_length=255, unique=True)
     about = models.TextField()
     join_date = models.DateTimeField(auto_now_add=True, editable=False)
 
