@@ -6,6 +6,10 @@ from net.friends.models import User
 
 
 def test_login(request):
+    iroh = User.objects.get(email='iroh@example.com')
+    iroh.set_password('test')
+    iroh.save()
+
     iroh = authenticate(username='iroh@example.com', password='test')
     if not iroh:
         raise Exception("Failed to login Iroh.")
