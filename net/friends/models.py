@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, UserManager
 from django.db import models
 
 from net.utils import first
@@ -26,8 +26,10 @@ class User(AbstractBaseUser):
     class Meta:
         app_label = 'net'
 
+    objects = UserManager()
+
     name = models.CharField(max_length=255)
-    email = models.EmailField(max_length=255)
+    email = models.EmailField(max_length=255, unique=True)
     about = models.TextField()
     join_date = models.DateTimeField(auto_now_add=True, editable=False)
 
@@ -56,6 +58,15 @@ class User(AbstractBaseUser):
             return True
         else:
             return False
+
+    @property
+    def friends(self):
+        return (
+            User.objects.filter(
+                pk__in=self.subscribers.values_list('from_user', flat=True)) &
+            User.objects.filter(
+                pk__in=self.subscriptions.values_list('to_user', flat=True))
+        )
 
     def __unicode__(self):
         return self.name
