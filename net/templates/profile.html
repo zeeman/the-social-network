@@ -10,6 +10,9 @@
                 <p>{{ user.about }}</p>
 
                 <button class="ui button">Follow</button>
+                {% if user == request.user %}
+                    <button id="edit_profile" class="ui button">Edit profile</button>
+                {% endif %}
             </div>
             <div class="ui feed segment">
                 <h2 class="ui header">Recent Activity</h2>
