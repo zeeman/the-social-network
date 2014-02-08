@@ -1,42 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'profile_base.html' %}
 
-{% block content %}
-        <div class="twelve wide column">
-            <div class="ui menu">
-                <div class="header item">Your Profile</div>
-                <div class="right menu">
-                    <a class="item" href="#">View</a>
-                    <a class="active item" href="#">Edit</a>
-                </div>
+{% block profile %}
+    <form class="ui form segment" method="post">
+        <div class="field">
+            <label for="display_name">Name:</label>
+            <div class="ui left labeled input">
+                <input placeholder="Name" name="display_name" id="display_name" type="text" value="Iroh">
             </div>
-            <form class="ui form segment" method="post">
-                <div class="field">
-                    <label for="display_name">Name:</label>
-                    <div class="ui left labeled input">
-                        <input placeholder="Name" name="display_name" id="display_name" type="text" value="Iroh">
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="about">About:</label>
-                    <div class="ui left labeled input">
-                        <textarea name="about" id="about" cols="30" rows="10">Are you so busy fighting you cannot see your own ship has set sail?</textarea>
-                    </div>
-                </div>
-                <div class="ui message">
-                    <p>A <i>public</i> profile is visible to all unblocked users, while a <i>private</i> profile is visible only to those you have followed.</p>
-                </div>
-                <div class="inline field">
-                    <label for="privacy">Profile visibility:</label>
-                    <select name="privacy" id="privacy">
-                        <option value="public">Public</option>
-                        <option value="private">Private</option>
-                    </select>
-                </div>
-                <div><button class="ui blue submit button">Submit</button></div>
-            </form>
         </div>
+        <div class="field">
+            <label for="about">About:</label>
+            <div class="ui left labeled input">
+                <textarea name="about" id="about" cols="30" rows="10">Are you so busy fighting you cannot see your own ship has set sail?</textarea>
+            </div>
+        </div>
+        <div class="ui message">
+            <p>A <i>public</i> profile is visible to all unblocked users, while a <i>private</i> profile is visible only to those you have followed.</p>
+        </div>
+        <div class="inline field">
+            <label for="privacy">Profile visibility:</label>
+            <select name="privacy" id="privacy">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+        </div>
+        <div><button class="ui blue submit button">Submit</button></div>
+    </form>
 {% endblock %}
 
-{% block sidebar %}
-    {{ render_sidebar(request, 'edit_profile') }}
+{% block profile_menu %}
+    {{ render_profile_menu(request, 'edit_profile') }}
 {% endblock %}

@@ -1,4 +1,14 @@
-{% from 'include/sidebar.html' import render_sidebar %}
+{% from 'include/utils.html' import render_list %}
+
+{% macro render_sidebar(request, active) %}
+    {% set items = [
+        ('feed', '/feed', 'Feed'),
+        ('my_profile', '/profile/' + request.user.pk|string, 'My profile'),
+        ('account', '/account', 'Account'),
+    ] %}
+
+    {{ render_list(items, active) }}
+{% endmacro %}
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +23,9 @@
 <body>
     <div class="ui grid">
         <div class="four wide column">
-            {% block sidebar %}{% endblock %}
+            <div class="ui vertical menu">
+                {% block sidebar %}{% endblock %}
+            </div>
             <div class="ui vertical menu">
                 <div class="header item">
                     <i class="users icon"></i> Friends

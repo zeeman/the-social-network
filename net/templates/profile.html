@@ -1,17 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'profile_base.html' %}
 
-{% block content %}
-        <div class="twelve wide column">
+{% block profile %}
             <div class="centered ui segment">
                 <img class="ui medium large" src="/static/images/profile_pic.png"
-                     alt=""/>
+                     alt="Profile picture"/>
                 <div class="ui section divider"></div>
                 <h1 class="ui header">{{ user.name }}</h1>
                 <p>{{ user.about }}</p>
-
-                <button class="ui button">Follow</button>
-                {% if user == request.user %}
-                    <button id="edit_profile" class="ui button">Edit profile</button>
+                {% if user != request.user %}
+                    <button class="ui button">Follow</button>
                 {% endif %}
             </div>
             <div class="ui feed segment">
@@ -26,9 +23,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 {% endblock %}
 
-{% block sidebar %}
-    {{ render_sidebar(request, 'my_profile' if user == request.user else 'profile') }} <!-- FIXME: this is ugly -->
+{% block profile_menu %}
+    {{ render_profile_menu(request, 'view_profile') }}
 {% endblock %}
