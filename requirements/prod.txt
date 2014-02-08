@@ -2,3 +2,4 @@ django
 jinja2
 psycopg2
 South
+djangorestframework

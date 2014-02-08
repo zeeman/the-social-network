@@ -65,9 +65,9 @@ class Post(models.Model):
     class Meta:
         app_label = 'net'
 
-    user = models.ForeignKey("User")
+    user = models.ForeignKey("User", related_name="posts")
     text = models.TextField()
-    post_date = models.DateTimeField()
+    post_date = models.DateTimeField(auto_now_add=True)
 
     def __repr__(self):
         return u'<Post: "{0}">'.format(self.text[:50])
