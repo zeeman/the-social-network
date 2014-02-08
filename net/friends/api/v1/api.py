@@ -25,6 +25,7 @@ class SubscriberSerializer(RelationshipSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
+    id = serializers.HyperlinkedIdentityField(view_name='post-detail')
     user = serializers.HyperlinkedRelatedField(many=False, read_only=True,
                                                view_name="user-detail")
 
@@ -38,6 +39,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    id = serializers.HyperlinkedIdentityField(view_name='user-detail')
     subscriptions = SubscriptionSerializer(many=True)
     subscribers = SubscriberSerializer(many=True)
     posts = serializers.HyperlinkedRelatedField(many=True, read_only=True,
@@ -45,8 +47,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = net_models.User
-        fields = ['name', 'about', 'join_date', 'subscriptions', 'subscribers',
-                  'posts']
+        fields = ['id', 'name', 'about', 'join_date', 'subscriptions',
+                  'subscribers', 'posts']
 
 
 class UserViewSet(viewsets.ModelViewSet):
