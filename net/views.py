@@ -14,7 +14,7 @@ def test_login(request):
     return redirect('/feed/')
 
 
-def basic_view(name):
+def generic_view(name):
     def view(request):
         return render(request, name + '.html', {
             'request': request,
