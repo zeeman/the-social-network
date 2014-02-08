@@ -6,14 +6,10 @@ from net.friends.models import User
 
 
 def test_login(request):
-    me, _ = User.objects.get_or_create(name='Iroh', email='iroh@example.com')
-    me.set_password('test')
-    me.save()
-
-    me = authenticate(username='iroh@example.com', password='test')
-    if not me:
+    iroh = authenticate(username='iroh@example.com', password='test')
+    if not iroh:
         raise Exception("Failed to login Iroh.")
-    login(request, me)
+    login(request, iroh)
 
     return redirect('/feed/')
 
