@@ -16,10 +16,9 @@
                 <div class="header item">
                     <i class="users icon"></i> Friends
                 </div>
-                <a class="item" href="#">Zuko</a>
-                <a class="item" href="#">Aang</a>
-                <a class="item" href="#">Katara</a>
-                <a class="item" href="#">Toph</a>
+                {% for friend in request.user.friends %}
+                  <a class="item" href="/profile/{{ friend.pk }}">{{ friend.name }}</a>
+                {% endfor %}
             </div>
             <div class="ui vertical menu">
                 <div class="header item">Find Content</div>
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </div>
-				{% block content %}
+        {% block content %}
             This page intentionally left blank.
         {% endblock %}
     </div>

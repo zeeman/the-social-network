@@ -20,7 +20,9 @@ def test_login(request):
 
 def basic_view(name):
     def view(request):
-        return render(request, name + '.html')
+        return render(request, name + '.html', {
+            'request': request,
+        })
 
     view.__name__ = name
     return view

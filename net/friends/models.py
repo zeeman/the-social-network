@@ -59,6 +59,15 @@ class User(AbstractBaseUser):
         else:
             return False
 
+    @property
+    def friends(self):
+        return (
+            User.objects.filter(
+                pk__in=self.subscribers.values_list('from_user', flat=True)) &
+            User.objects.filter(
+                pk__in=self.subscriptions.values_list('to_user', flat=True))
+        )
+
     def __unicode__(self):
         return self.name
 
