@@ -26,3 +26,13 @@ def basic_view(name):
 
     view.__name__ = name
     return view
+
+
+def profile(request, pk=None):
+    if pk is None:
+        raise Exception('pk not provided')
+
+    return render(request, 'profile.html', {
+        'request': request,
+        'user': User.objects.get(pk=pk),
+    })

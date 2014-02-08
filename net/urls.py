@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from net.views import basic_view, test_login
+from net.views import basic_view, profile, test_login
 
 
 admin.autodiscover()
@@ -18,6 +18,6 @@ urlpatterns = patterns('',
     url(r'^account/', basic_view('account')),
     url(r'^edit_profile/', basic_view('edit_profile')),
     url(r'^feed/', basic_view('feed')),
-    url(r'^profile/', basic_view('profile')),
+    url(r'^profile/(?P<pk>[\w-]+)$', profile),
     url(r'^your_profile/', basic_view('your_profile')),
 )
