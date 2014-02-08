@@ -27,5 +27,5 @@
 {% endblock %}
 
 {% block sidebar %}
-    {{ render_sidebar('profile') }}
+    {{ render_sidebar(request, 'my_profile' if user == request.user else 'profile') }} <!-- FIXME: this is ugly -->
 {% endblock %}
