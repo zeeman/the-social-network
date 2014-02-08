@@ -1,0 +1,13 @@
+{% set items = [
+    ('account', '/account', 'Account'),
+    ('feed', '/feed', 'Feed'),
+    ('profile', '/profile', 'Profile')
+] %}
+
+{% macro render_sidebar(active) %}
+    <div class="ui vertical menu">
+        {% for name, uri, text in items %}
+            <a class="item{{ ' active' if name == active }}" href="{{ uri }}">{{ text }}</a>
+        {% endfor %}
+    </div>
+{% endmacro %}

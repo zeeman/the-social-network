@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="sui/css/semantic.min.css">
-    <link rel="stylesheet" href="blogfrog.css">
-</head>
-<body>
-    <div class="ui grid">
-        <div class="four wide column">
-            <div class="ui vertical menu">
-                <a class="item active" href="#">Feed</a>
-                <a class="item" href="#">Profile</a>
-                <a class="item" href="#">Account</a>
-            </div>
-            <div class="ui vertical menu">
-                <div class="header item">
-                    <i class="users icon"></i> Friends
-                </div>
-                <a class="item" href="#">Zuko</a>
-                <a class="item" href="#">Aang</a>
-                <a class="item" href="#">Katara</a>
-                <a class="item" href="#">Toph</a>
-            </div>
-            <div class="ui vertical menu">
-                <div class="header item">Find Content</div>
-                <div class="item">
-                    <div class="ui icon input">
-                        <input placeholder="Keyword search..." type="text">
-                        <i class="search icon"></i>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ui icon input">
-                        <input placeholder="Find friends..." type="text"/>
-                        <i class="user icon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
+{% extends 'base.html' %}
+
+{% block content %}
         <div class="twelve wide column">
             <div class="ui message">
                 <i class="close icon"></i>
@@ -96,6 +59,8 @@
                 -->
             </div>
         </div>
-    </div>
-</body>
-</html>
+{% endblock %}
+
+{% block sidebar %}
+    {{ render_sidebar('feed') }}
+{% endblock %}
