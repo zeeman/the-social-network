@@ -14,7 +14,6 @@ urlpatterns = patterns('',
 
     url(r'^login', test_login),
 
-    url(r'^account', generic_view('account')),
     url(r'^edit_profile', generic_view('edit_profile')),
     url(r'^feed', generic_view('feed')),
     url(r'^profile/(?P<pk>[\w-]+)$', profile),

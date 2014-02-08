@@ -4,7 +4,6 @@
     {% set items = [
         ('feed', '/feed', 'Feed'),
         ('my_profile', '/profile/' + request.user.pk|string, 'My profile'),
-        ('account', '/account', 'Account'),
     ] %}
 
     {{ render_list(items, active) }}
