@@ -15,7 +15,7 @@
   "pk": 2,
   "model": "net.user",
   "fields": {
-    "about": "",
+    "about": "I'm never happy.",
     "name": "Zuko",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
@@ -27,7 +27,7 @@
   "pk": 3,
   "model": "net.user",
   "fields": {
-    "about": "",
+    "about": "I'll just get some lettuce out of the garbage.",
     "name": "Aang",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
@@ -39,7 +39,7 @@
   "pk": 4,
   "model": "net.user",
   "fields": {
-    "about": "",
+    "about": "I prefer to think of it as \"High risk trading.\"",
     "name": "Katara",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
@@ -51,12 +51,93 @@
   "pk": 5,
   "model": "net.user",
   "fields": {
-    "about": "",
+    "about": "Excuse me. Does anyone have a razor, because I've got some *hairy* pits.",
     "name": "Toph",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
     "password": "",
     "email": "toph@example.com"
+  }
+},
+{
+  "pk": 1,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 4,
+    "is_block": false,
+    "from_user": 3
+  }
+},
+{
+  "pk": 2,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 5,
+    "is_block": false,
+    "from_user": 3
+  }
+},
+{
+  "pk": 3,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 3,
+    "is_block": false,
+    "from_user": 4
+  }
+},
+{
+  "pk": 4,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 3,
+    "is_block": false,
+    "from_user": 5
+  }
+},
+{
+  "pk": 5,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 5,
+    "is_block": false,
+    "from_user": 4
+  }
+},
+{
+  "pk": 6,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 4,
+    "is_block": false,
+    "from_user": 5
+  }
+},
+{
+  "pk": 7,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 2,
+    "is_block": false,
+    "from_user": 1
+  }
+},
+{
+  "pk": 8,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 1,
+    "is_block": false,
+    "from_user": 2
+  }
+},
+{
+  "pk": 9,
+  "model": "net.relationship",
+  "fields": {
+    "to_user": 3,
+    "is_block": false,
+    "from_user": 2
   }
 }
 ]
