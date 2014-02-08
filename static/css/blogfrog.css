@@ -11,3 +11,7 @@ body {
 .centered {
     text-align: center;
 }
+
+.inline.field > label {
+    font-size: 0.875em !important;
+}
