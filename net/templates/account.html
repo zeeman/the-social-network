@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="sui/css/semantic.min.css">
+    <link rel="stylesheet" href="blogfrog.css">
+    <script src="sui/javascript/semantic.min.js"></script>
+</head>
+<body>
+    <div class="ui grid">
+        <div class="four wide column">
+            <div class="ui vertical menu">
+                <a class="item" href="#">Feed</a>
+                <a class="item" href="#">Profile</a>
+                <a class="item active" href="#">Account</a>
+            </div>
+            <div class="ui vertical menu">
+                <div class="header item">
+                    <i class="users icon"></i> Friends
+                </div>
+                <a class="item" href="#">Zuko</a>
+                <a class="item" href="#">Aang</a>
+                <a class="item" href="#">Katara</a>
+                <a class="item" href="#">Toph</a>
+            </div>
+            <div class="ui vertical menu">
+                <div class="header item">Find Content</div>
+                <div class="item">
+                    <div class="ui icon input">
+                        <input placeholder="Keyword search..." type="text">
+                        <i class="search icon"></i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui icon input">
+                        <input placeholder="Find friends..." type="text"/>
+                        <i class="user icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="twelve wide column">
+            <h2>Account Settings</h2>
+            <form class="ui form segment" method="post">
+                <div class="field">
+                    <label for="display_name">Name:</label>
+                    <div class="ui left labeled input">
+                        <input placeholder="Name" name="display_name" id="display_name" type="text"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="about">About:</label>
+                    <div class="ui left labeled input">
+                        <textarea name="about" id="about" cols="30"
+                                  rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="grouped inline fields">
+                    <label for="public">Profile Visibility</label>
+                    <div class="ui labeled input">
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input name="public" id="public" type="radio">
+                                <label>Public</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input name="private" type="radio">
+                                <label>Private</label>
+                            </div>
+                        </div>
+                        <div class="item">
+                            A <i>public</i> profile is visible to all unblocked users, while a <i>private</i> profile is visible only to those you have followed.
+                        </div>
+                    </div>
+                </div>
+                <div><button class="ui blue submit button">Submit</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
