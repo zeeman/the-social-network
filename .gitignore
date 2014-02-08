@@ -1,2 +1,4 @@
 *.pyc
 .*.sw?
+
+net/settings/local.py
