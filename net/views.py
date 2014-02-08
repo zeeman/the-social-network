@@ -28,7 +28,12 @@ def profile(request, pk=None):
     if pk is None:
         raise Exception('pk not provided')
 
+    user = User.objects.get(pk=pk)
+
+    followed = request.user.subscriptions.filter(to_user=user).exists()
+
     return render(request, 'profile.html', {
         'request': request,
-        'user': User.objects.get(pk=pk),
+        'user': user,
+        'followed': followed,
     })
