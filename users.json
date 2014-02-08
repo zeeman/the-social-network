@@ -1,0 +1,62 @@
+[
+{
+  "pk": 1,
+  "model": "net.user",
+  "fields": {
+    "about": "Are you so busy fighting you cannot see your own ship has set sail?",
+    "name": "Iroh",
+    "join_date": "2014-02-08T03:19:14.073Z",
+    "last_login": "2014-02-08T03:19:15.042Z",
+    "password": "",
+    "email": "iroh@example.com"
+  }
+},
+{
+  "pk": 2,
+  "model": "net.user",
+  "fields": {
+    "about": "",
+    "name": "Zuko",
+    "join_date": "2014-02-08T03:19:14.073Z",
+    "last_login": "2014-02-08T03:19:15.042Z",
+    "password": "",
+    "email": "zuko@example.com"
+  }
+},
+{
+  "pk": 3,
+  "model": "net.user",
+  "fields": {
+    "about": "",
+    "name": "Aang",
+    "join_date": "2014-02-08T03:19:14.073Z",
+    "last_login": "2014-02-08T03:19:15.042Z",
+    "password": "",
+    "email": "aang@example.com"
+  }
+},
+{
+  "pk": 4,
+  "model": "net.user",
+  "fields": {
+    "about": "",
+    "name": "Katara",
+    "join_date": "2014-02-08T03:19:14.073Z",
+    "last_login": "2014-02-08T03:19:15.042Z",
+    "password": "",
+    "email": "katara@example.com"
+  }
+},
+{
+  "pk": 5,
+  "model": "net.user",
+  "fields": {
+    "about": "",
+    "name": "Toph",
+    "join_date": "2014-02-08T03:19:14.073Z",
+    "last_login": "2014-02-08T03:19:15.042Z",
+    "password": "",
+    "email": "toph@example.com"
+  }
+}
+]
