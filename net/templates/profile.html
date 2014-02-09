@@ -1,0 +1,34 @@
+{% extends 'profile_base.html' %}
+
+{% block profile %}
+            <div class="centered ui segment">
+                <img class="ui medium large" src="/static/images/profile_pic.png"
+                     alt="Profile picture"/>
+                <div class="ui section divider"></div>
+                <h1 class="ui header">{{ user.name }}</h1>
+                <p>{{ user.about }}</p>
+                {% if user != request.user %}
+                    {% if followed %}
+                        <button class="ui button">Unfollow</button>
+                    {% else %}
+                        <button class="ui button">Follow</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="ui feed segment">
+                <h2 class="ui header">Recent Activity</h2>
+                <div class="event">
+                    <div class="label">
+                        <i class="circular add icon"></i>
+                    </div>
+                    <div class="content">
+                        <div class="date">2 minutes ago</div>
+                        <div class="summary"><a href="/profile/1">Iroh</a> followed <a href="/profile/2">Zuko</a></div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+
+{% block profile_menu %}
+    {{ render_profile_menu(request, 'view_profile') }}
+{% endblock %}

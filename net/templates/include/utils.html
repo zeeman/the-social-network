@@ -1,0 +1,5 @@
+{% macro render_list(items, active) %}
+    {% for name, uri, text in items %}
+        <a class="item{{ ' active' if name == active }}" href="{{ uri }}">{{ text }}</a>
+    {% endfor %}
+{% endmacro %}

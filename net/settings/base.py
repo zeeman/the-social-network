@@ -52,6 +52,13 @@ WSGI_APPLICATION = 'net.wsgi.application'
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+AUTH_USER_MODEL = 'net.User'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_MODEL_SERIALIZER_CLASS':

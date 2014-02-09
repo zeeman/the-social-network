@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% macro render_profile_menu(request, active) %}
+    {% set items = [
+        ('view_profile', '/profile/' + request.user.pk|string,
+            'View'),
+        ('edit_profile', '/edit_profile', 'Edit'),
+    ] %}
+
+    {{ render_list(items, active) }}
+{% endmacro %}
+
+
+{% block content %}
+        <div class="twelve wide column">
+            {% if user == request.user %}
+                <div class="ui menu">
+                    <div class="header item">My profile</div>
+                    <div class="right menu">
+                        {% block profile_menu %}{% endblock %}
+                    </div>
+                </div>
+            {% endif %}
+            {% block profile %}{% endblock %}
+        </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ render_sidebar(request, 'my_profile' if user == request.user else 'profile') }} <!-- FIXME: this is ugly -->
+{% endblock %}

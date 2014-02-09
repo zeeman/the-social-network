@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <div class="twelve wide column">
+            <div class="ui message">
+                <i class="close icon"></i>
+                <div class="header">Hey there, Iroh! Welcome to BlogFrog!</div>
+                <p>BlogFrog is the coolest new blogging site, but you already knew that. Now it's time to dive right in!</p>
+            </div>
+            <div class="ui feed segment">
+                <h2 class="ui header">Recent Activity</h2>
+                <div class="event">
+                    <div class="label">
+                        <i class="circular add icon"></i>
+                    </div>
+                    <div class="content">
+                        <div class="date">2 minutes ago</div>
+                        <div class="summary"><a href="/profile/1">Iroh</a> followed <a href="/profile/2">Zuko</a></div>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="label">
+                        <i class="circular pencil icon"></i>
+                    </div>
+                    <div class="content">
+                        <div class="date">3 minutes ago</div>
+                        <div class="summary"><a href="/profile/1">Iroh</a> made a blog post.</div>
+                        <div class="extra text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Man, what the fuck kind of tea did I just drink?
+                        </div>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="label">
+                        <i class="circular add icon"></i>
+                    </div>
+                    <div class="content">
+                        <div class="date">24 minutes ago</div>
+                        <div class="summary">
+                            <a href="/profile/3">Aang</a> unfollowed <a href="/profile/2">Zuko</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="label">
+                        <i class="circular add icon"></i>
+                    </div>
+                    <div class="content">
+                        <div class="date">25 minutes ago</div>
+                        <div class="summary">
+                            <a href="/profile/3">Aang</a> followed <a href="/profile/2">Zuko</a>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="event">
+                    <div class="label">
+                        <i class="circular pencil icon"></i>
+                    </div>
+                    <div class="content">
+                        <div class="date"></div>
+                        <div class="summary">
+
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ render_sidebar(request, 'feed') }}
+{% endblock %}
