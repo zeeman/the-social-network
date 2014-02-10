@@ -3,3 +3,15 @@
         <a class="item{{ ' active' if name == active }}" href="{{ uri }}">{{ text }}</a>
     {% endfor %}
 {% endmacro %}
+
+{% macro render_radio_button_group(name, items, active) %}
+    {% for value, text in items %}
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" name="{{ name }}" value="{{ value }}"
+                       {%- if value == active %} checked="checked"{% endif %}>
+                <label>{{ text }}</label>
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}

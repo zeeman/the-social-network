@@ -1,12 +1,14 @@
 {% extends 'profile_base.html' %}
 
+{% from 'include/utils.html' import render_radio_button_group %}
+
 {% block profile %}
     <form class="ui form segment" method="post">
         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
         <div class="field">
-            <label for="display_name">Name:</label>
+            <label for="name">Name:</label>
             <div class="ui left labeled input">
-                <input placeholder="Name" name="display_name" id="display_name"
+                <input placeholder="Name" name="name" id="name"
                     type="text" value="{{ request.user.name }}"/>
             </div>
         </div>
@@ -20,18 +22,9 @@
         <div class="grouped inline fields">
             <label>Profile Visibility</label>
             <div class="ui labeled input">
-                <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="visibility" checked="checked">
-                        <label>Public</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="visibility">
-                        <label>Private</label>
-                    </div>
-                </div>
+                {{ render_radio_button_group(
+                    "profile_visibility", [("True", "Public"), ("False", "Private")],
+                    request.user.profile_visibility|string) }}
                 <div class="item">
                     A <i>public</i> profile is visible to all unblocked users, while a <i>private</i> profile is visible only to those you have followed.
                 </div>

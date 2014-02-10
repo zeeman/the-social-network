@@ -1,7 +1,10 @@
+import json
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from net.forms import ProfileForm
 from net.models import User
 
 
@@ -41,3 +44,17 @@ def profile(request, pk=None):
         'user': user,
         'followed': followed,
     })
+
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('/profile/' + str(request.user.pk))
+        else:
+            return HttpResponse(json.dumps(form.errors))
+    elif request.method == 'GET':
+        return generic_view('edit_profile')(request)
+    else:
+        raise Exception('Invalid request method.')
