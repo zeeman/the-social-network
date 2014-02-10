@@ -1,5 +1,5 @@
 from rest_framework import serializers, viewsets
-from net.friends import models as net_models
+from net import models as net_models
 
 
 class RelationshipSerializer(serializers.ModelSerializer):

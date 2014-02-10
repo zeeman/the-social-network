@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import redirect, render
 
-from net.friends.models import User
+from net.models import User
 
 
 def test_login(request):

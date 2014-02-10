@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.shortcuts import redirect
 
-from net.friends.api.v1.routes import router
+from net.api.v1.routes import router
 from net.views import generic_view, profile, test_login
 
 
