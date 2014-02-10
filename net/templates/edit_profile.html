@@ -2,6 +2,7 @@
 
 {% block profile %}
     <form class="ui form segment" method="post">
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
         <div class="field">
             <label for="display_name">Name:</label>
             <div class="ui left labeled input">
