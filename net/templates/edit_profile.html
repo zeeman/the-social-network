@@ -21,13 +21,11 @@
         </div>
         <div class="grouped inline fields">
             <label>Profile Visibility</label>
-            <div class="ui labeled input">
-                {{ render_radio_button_group(
-                    "profile_visibility", [("True", "Public"), ("False", "Private")],
-                    request.user.profile_visibility|string) }}
-                <div class="item">
-                    A <i>public</i> profile is visible to all unblocked users, while a <i>private</i> profile is visible only to those you have followed.
-                </div>
+            {{ render_radio_button_group(
+                "profile_visibility", [("True", "Public"), ("False", "Private")],
+                request.user.profile_visibility|string) }}
+            <div class="item">
+                A <i>public</i> profile is visible to all unblocked users, while a <i>private</i> profile is visible only to those you have followed.
             </div>
         </div>
         <div><button class="ui blue submit button">Submit</button></div>
