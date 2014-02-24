@@ -5,14 +5,14 @@
 {% block profile %}
     <form class="ui form segment" method="post" success="/profile/{{ request.user.id }}">
         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-        <div class="field">
+        <div class="inline field">
             <label for="name">Name:</label>
             <div class="ui left labeled input">
                 <input placeholder="Name" name="name" id="name"
                     type="text" value="{{ request.user.name }}"/>
             </div>
         </div>
-        <div class="field">
+        <div class="inline field">
             <label for="about">About:</label>
             <div class="ui left labeled input">
                 <textarea name="about" id="about" cols="30"
