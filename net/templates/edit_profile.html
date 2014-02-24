@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="grouped inline fields">
-            <label for="profile_visibility">Profile Visibility</label>
+            <label for="profile_visibility">Profile visibility:</label>
             {{ render_radio_button_group(
                 "profile_visibility", [("True", "Public"), ("False", "Private")],
                 request.user.profile_visibility|string) }}
