@@ -24,9 +24,11 @@ function ajax_form_submit(form) {
 
 function set_errors(form, errors) {
     $(form).find('span.error').remove();
+    $(form).find('div.error').removeClass('error');
 
     $.each(errors, function (name, text) {
-        $('label[for=' + name + ']').first().after(
+        $(form).find('label[for=' + name + ']').first().after(
             '<span class="error">' + text + '</span>');
+        $(form).find(':input#' + name).parent().addClass('error');
     });
 }
