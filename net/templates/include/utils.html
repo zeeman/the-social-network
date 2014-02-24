@@ -10,8 +10,8 @@
             <div class="ui radio checkbox">
                 <input type="radio" name="{{ name }}" value="{{ value }}"
                        {%- if value == active %} checked="checked"{% endif %}
-                       id="{{ value }}">
-                <label for="{{ value }}">{{ text }}</label>
+                       id="{{ name }}_{{ value }}">
+                <label for="{{ name }}_{{ value }}">{{ text }}</label>
             </div>
         </div>
     {% endfor %}
