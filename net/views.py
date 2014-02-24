@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render
 
 from net.forms import ProfileForm
 from net.models import User
+from net.utils import HttpResponse422
 
 
 def test_login(request):
@@ -51,9 +52,12 @@ def edit_profile(request):
         form = ProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('/profile/' + str(request.user.pk))
+            return HttpResponse('{"errors": []}')
+            #return redirect('/profile/' + str(request.user.pk))
         else:
-            return HttpResponse(json.dumps(form.errors))
+            return HttpResponse422(json.dumps(form.errors))
+            #response.status_code = 422
+            #return response
     elif request.method == 'GET':
         return generic_view('edit_profile')(request)
     else:

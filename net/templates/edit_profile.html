@@ -3,7 +3,7 @@
 {% from 'include/utils.html' import render_radio_button_group %}
 
 {% block profile %}
-    <form class="ui form segment" method="post">
+    <form class="ui form segment" method="post" success="/profile/{{ request.user.id }}">
         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
         <div class="field">
             <label for="name">Name:</label>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="grouped inline fields">
-            <label>Profile Visibility</label>
+            <label for="profile_visibility">Profile Visibility</label>
             {{ render_radio_button_group(
                 "profile_visibility", [("True", "Public"), ("False", "Private")],
                 request.user.profile_visibility|string) }}
