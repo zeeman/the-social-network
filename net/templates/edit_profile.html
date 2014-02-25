@@ -3,8 +3,7 @@
 {% from 'include/utils.html' import render_radio_button_group %}
 
 {% block profile %}
-    <form class="ui form segment" method="post" success="/profile/{{ request.user.id }}">
-        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <form class="ui form segment" method="post" data-redirect="/profile/{{ request.user.id }}">
         <div class="inline field">
             <label for="name">Name:</label>
             <div class="ui left labeled input">

@@ -14,9 +14,14 @@ $(document).ready(function() {
 });
 
 function ajax_form_submit(form) {
-    var post_data = $(form).find(':input').serializeArray()
+    var post_data = $(form).find(':input').serializeArray();
+    post_data.push({
+        'name': 'csrfmiddlewaretoken',
+        'value': $('span#metadata').attr('data-csrfmiddlewaretoken')
+    });
+
     $.post(form.target, post_data, function(data) {
-        window.location = $(form).attr('success');
+        window.location = $(form).attr('data-redirect');
     }, 'json').fail(function(data) {
         set_errors(form, data.responseJSON);
     });
