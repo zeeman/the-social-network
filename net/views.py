@@ -1,8 +1,12 @@
+import json
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from net.friends.models import User
+from net.forms import ProfileForm
+from net.models import User
+from net.utils import HttpResponse422
 
 
 def test_login(request):
@@ -41,3 +45,20 @@ def profile(request, pk=None):
         'user': user,
         'followed': followed,
     })
+
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('{"errors": []}')
+            #return redirect('/profile/' + str(request.user.pk))
+        else:
+            return HttpResponse422(json.dumps(form.errors))
+            #response.status_code = 422
+            #return response
+    elif request.method == 'GET':
+        return generic_view('edit_profile')(request)
+    else:
+        raise Exception('Invalid request method.')

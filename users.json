@@ -7,6 +7,7 @@
     "name": "Iroh",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
+    "profile_visibility": false,
     "password": "",
     "email": "iroh@example.com"
   }
@@ -19,6 +20,7 @@
     "name": "Zuko",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
+    "profile_visibility": true,
     "password": "",
     "email": "zuko@example.com"
   }
@@ -31,6 +33,7 @@
     "name": "Aang",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
+    "profile_visibility": true,
     "password": "",
     "email": "aang@example.com"
   }
@@ -43,6 +46,7 @@
     "name": "Katara",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
+    "profile_visibility": false,
     "password": "",
     "email": "katara@example.com"
   }
@@ -55,6 +59,7 @@
     "name": "Toph",
     "join_date": "2014-02-08T03:19:14.073Z",
     "last_login": "2014-02-08T03:19:15.042Z",
+    "profile_visibility": false,
     "password": "",
     "email": "toph@example.com"
   }

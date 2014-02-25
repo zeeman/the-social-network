@@ -1,5 +1,6 @@
-html, body  {
-    font-size: 15px; }
+html, body {
+    font-size: 15px;
+}
 
 body {
     font-family: "Open Sans", "Helvetica Neue", "Helvetical", sans-serif;
@@ -14,4 +15,8 @@ body {
 
 .inline.field > label {
     font-size: 0.875em !important;
+}
+
+span.error {
+    color: red;
 }
